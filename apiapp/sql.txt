@@ -1,0 +1,20 @@
+# CREATE DATABASE api_img;
+#USE api_img;
+#create table cut_change (
+#	id int AUTO_INCREMENT,
+#	img_name varchar(100),
+#   url_name varchar(255),
+#   PRIMARY KEY (id)
+#);
+#INSERT INTO cut_change(img_name,url_name) VALUES(null,null);
+#select * from cut_change;
+
+
+#create table change_img (
+#	id int AUTO_INCREMENT,
+#	img_name varchar(100),
+#    url_name varchar(255),
+#    PRIMARY KEY (id)
+#);
+#INSERT INTO cut_change(img_name,url_name) VALUES(null,null);
+#SELECT * from change_img;
