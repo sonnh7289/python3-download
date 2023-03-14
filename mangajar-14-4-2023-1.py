@@ -281,4 +281,4 @@ def get_detail_pageItem():
 
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', port=19888)
+   app.run(host='0.0.0.0', port=19883338)
