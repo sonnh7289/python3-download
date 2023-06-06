@@ -21,6 +21,9 @@ import requests
 import shutil
 import random
 import string
+import json
+import os
+import glob
 
 IMAGEDIR = "images/"
 IMAGEDIR_OUT = "images/out_put/"
@@ -32,6 +35,7 @@ def get_random_string(length):
     result_str = ''.join(random.choice(letters) for i in range(length))
     print("Random string of length", length, "is:", result_str)
     return  result_str
+
 def download_image(url, filename):
     response = requests.get(url, stream=True)
     with open(filename, 'wb') as out_file:
@@ -85,9 +89,12 @@ async def change_background(request: Request):
     download_image(imagebackground, linkBackground)
     change_bg = alter_bg(model_type = "pb")
     change_bg.load_pascalvoc_model("xception_pascalvoc.pb")
-    change_bg.change_bg_img(f_image_path=output_path ,b_image_path=linkBackground, output_image_name=linkSave1)
+    change_bg.change_bg_img(f_image_path=linkSave1  ,  b_image_path=linkBackground,     output_image_name=output_path)
     api_key = "1c590c3d10c9b92fbfbb1c9eef1cea06"
     direct_link = upload_image_to_imgbb(output_path, api_key)
+    os.remove(linkSave1)
+    os.remove(linkBackground)
+    os.remove(output_path)
     return {"linkreturn" : direct_link}
 
 # get img one to ID
