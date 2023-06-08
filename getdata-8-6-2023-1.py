@@ -2568,11 +2568,15 @@ def getPageLoveHistory(trang):
             print("item phan tu " + str(idItemPhanTu))
             mycursor.execute(f"SELECT * from saved_sukien where id_toan_bo_su_kien={idItemPhanTu}")
             saved_sukien = mycursor.fetchall()
-#            print(saved_sukien)
+            print(saved_sukien)
             thong_tin = {}
-            soPhanTu1List= mycursor.rowcount
-            for i in range(0, soPhanTu1List):
+            soPhanTu1List= len(mycursor.fetchall())
+            phantupro = cursor.rowcount
+            print(soPhanTu1List)
+            for i in range(0, phantupro):
                 thong_tin["id"] = saved_sukien[i][0]
+                print(saved_sukien[i][0])
+                print("sao ko vao")
                 thong_tin["link_nam_goc"] = saved_sukien[i][1]
                 thong_tin["link_nu_goc"] = saved_sukien[i][2]
                 thong_tin["link_nam_chua_swap"] = saved_sukien[i][3]
@@ -2589,7 +2593,7 @@ def getPageLoveHistory(trang):
             # Lưu các thay đổi vào database
         connection.commit()
         # mycursor.execute("SELECT thong_tin from skhanhphuc")
-        print(mycursor.rowcount, "phan tu phan tich")
+        print(mycursor.rowcount, "record inserted.")
         # mycursor1.execute("Select thong_tin from skhanhphuc")x
         # connection.commit()
     except mysql.connector.Error as error:
