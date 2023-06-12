@@ -19,8 +19,8 @@ app.config['SQLALCHEMY_DATABASE_URI']="mysql+pymysql://root:S%401989@localhost/c
 app.config['SQLAlCHEMY_TRACK_MODIFICATIONS']=True
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT']=465
-app.config['MAIL_USERNAME']="tranthituyen1988ios@gmail.com"
-app.config['MAIL_PASSWORD']="exhjdnangmtukvay"
+app.config['MAIL_USERNAME']="nguyenvanchien1999prohehe@gmail.com"
+app.config['MAIL_PASSWORD']="skouzcyupkkoheny"
 app.config['MAIL_USE_TLS']=False
 app.config['MAIL_USE_SSL']=True
 
