@@ -2640,8 +2640,9 @@ def getPageCommentHistory(trang):
         tongsotrang = tongsophantu / 50 
         if trang < 1:
             return {"messages" : "page start from 1"}
-        phantunguoc = tongsophantu - (trang-1) *50
-        mycursor.execute(f"SELECT * FROM comment  LIMIT 50 offset { phantunguoc }")
+        phantunguoc = tongsophantu - (trang-1) *50 - 50
+        mycursor = connection.cursor()
+        mycursor.execute(f"SELECT * FROM comment  LIMIT 50, { phantunguoc }")
         result2 = mycursor.fetchall()
         print("kq2" ,result2)
         sophantu = mycursor.rowcount
